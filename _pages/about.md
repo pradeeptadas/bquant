@@ -4,8 +4,8 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+I am a quant by profession. Enthusiatic about computers, mathematics and Formula one! 
 
+You can find my resume at:
+[`Resume Link`](https://drive.google.com/file/d/10d0z2ui4jluwsbauOV5vPx2sS7JU_Tfn/view?usp=sharing)
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
