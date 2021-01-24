@@ -19,7 +19,7 @@ Hello :wave: @pradeeptadas!  Thank you for using fastpages!
 
 If you are not using a custom domain, your website will appear at: 
 
-#### https://pradeeptadas.github.io/quant-blog
+#### https://pradeeptadas.github.io/bquant
 
 
 ## Optional: Using a Custom Domain
