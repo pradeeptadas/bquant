@@ -1,1 +1,1 @@
-Sitemap: https://pradeeptadas.github.io/quant-blog/sitemap.xml
+Sitemap: https://pradeeptadas.github.io/bquant/sitemap.xml

@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://pradeeptadas.github.io/quant-blog/markdown/2020/01/14/test-markdown-post.html</loc>
-<lastmod>2020-01-14T00:00:00-06:00</lastmod>
+<loc>https://pradeeptadas.github.io/bquant/about/</loc>
 </url>
 <url>
-<loc>https://pradeeptadas.github.io/quant-blog/ghtop</loc>
-<lastmod>2020-01-29T00:00:00-06:00</lastmod>
+<loc>https://pradeeptadas.github.io/bquant/</loc>
 </url>
 <url>
-<loc>https://pradeeptadas.github.io/quant-blog/jupyter/2020/02/20/test.html</loc>
-<lastmod>2020-02-20T00:00:00-06:00</lastmod>
+<loc>https://pradeeptadas.github.io/bquant/search/</loc>
 </url>
 <url>
-<loc>https://pradeeptadas.github.io/quant-blog/about/</loc>
-</url>
-<url>
-<loc>https://pradeeptadas.github.io/quant-blog/</loc>
-</url>
-<url>
-<loc>https://pradeeptadas.github.io/quant-blog/search/</loc>
-</url>
-<url>
-<loc>https://pradeeptadas.github.io/quant-blog/categories/</loc>
+<loc>https://pradeeptadas.github.io/bquant/categories/</loc>
 </url>
 </urlset>
