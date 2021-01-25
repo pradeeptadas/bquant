@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "Matrix Derivative Formulae",
-            "content": "f(x)=xTAx    ⟹  ∂f∂x=(AT+A)xf(x)=x^TAx ~~ implies frac{ partial f}{ partial x} = (A^T+A)xf(x)=xTAx  ⟹∂x∂f​=(AT+A)x .",
-            "url": "https://pradeeptadas.github.io/bquant/2021/01/25/matrix-derivative-formulae.html",
-            "relUrl": "/2021/01/25/matrix-derivative-formulae.html",
+            "title": "Important rules",
+            "content": "Matrix Derivative Formulae . f(x)=xTAx    ⟹  ∂f∂x=(AT+A)xf(x)=x^TAx ~~ implies frac{ partial f}{ partial x} = (A^T+A)xf(x)=xTAx  ⟹∂x∂f​=(AT+A)x .",
+            "url": "https://pradeeptadas.github.io/bquant/markdown/2021/01/25/matrix-derivative-formulae.html",
+            "relUrl": "/markdown/2021/01/25/matrix-derivative-formulae.html",
             "date": " • Jan 25, 2021"
         }
         
