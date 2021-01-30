@@ -13,6 +13,17 @@
   
     
         ,"post1": {
+            "title": "Title",
+            "content": "Relation . Subset of product set $R subset A times B$ . Function . Relation on $A times B$, such that A related to B. It can be onto / one-to-one / bijection. . Convergence . We know the cauchy sequence, 1.2, 1.22, 1.222, ... . But Does this converge? To generalize this concept, we have to introduct Metric space. . Metric Space . It has the distance function. with triangle inequality. . It has the concept of Convergence which means $ forall epsilon&gt;0, ~~ exists N: n geq N implies d(x_n, x) &lt; epsilon$ . Similarly, cauchy sequence means $ forall epsilon &gt; 0, ~~ M geq N, implies d(x_n, x) &lt; epsilon$. This is weaker concept than convergence and it has no reference point like convergence. . In complete metric spaces, cauchy sequence converges as well. . For example, $1, 1.41, 1.414, ... rightarrow sqrt{2}$ is a cachy sequency in $ mathbb{Q}$ but converges in $ mathbb{R}$ . Vector Space . Metric space gives abstract space for distance. Similarly, this is abstract space for vector operation. . It has $ times : F times V rightarrow V$ (F is called field here) It also has $+ : V + V rightarrow V$ . Normed Space Vector + Metric Space (with &quot;norm&quot; distance function) . norm funcion $ parallel cdot parallel$: $V rightarrow mathbb{R}_+$ . Norm makes V into special metric space since $d(u, v) = parallel u-v parallel$ satisfies axioms of metric space. . $ boxed{ text{Complete norm space is called Banach Space.}}$ . Inner Product Space Vector Space with inner product . $&lt; cdot, cdot&gt;: V times V rightarrow mathbb{R}$ . This is a special case of normed space $ implies parallel u parallel = sqrt{&lt;u, v&gt;}$ . $ boxed{ text{Complete inner product space is called Hilbert Space.}}$ . Inner product space adds the concept of angles. . $ frac{&lt;u, v&gt;}{ parallel u parallel parallel v parallel} = cos phi$ .",
+            "url": "https://pradeeptadas.github.io/bquant/2021/01/30/Essential-Real-Analysis.html",
+            "relUrl": "/2021/01/30/Essential-Real-Analysis.html",
+            "date": " • Jan 30, 2021"
+        }
+        
+    
+  
+    
+        ,"post2": {
             "title": "Important rules",
             "content": "f(x)=xTAx  ⟹  ∂f∂x=(AT+A)xf(x)=x^TAx implies frac{ partial f}{ partial x} = (A^T+A)xf(x)=xTAx⟹∂x∂f​=(AT+A)x .",
             "url": "https://pradeeptadas.github.io/bquant/mathematics/2021/01/25/matrix-derivative-formulae.html",
