@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>ghtop redux | bquant blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="ghtop redux" />
+<meta name="author" content="<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Things we learned by refactoring a CLI tool with fastcore, rich, and ghapi." />
+<meta property="og:description" content="Things we learned by refactoring a CLI tool with fastcore, rich, and ghapi." />
+<link rel="canonical" href="https://pradeeptadas.github.io/bquant/ghtop" />
+<meta property="og:url" content="https://pradeeptadas.github.io/bquant/ghtop" />
+<meta property="og:site_name" content="bquant blog" />
+<meta property="og:image" content="https://user-images.githubusercontent.com/1483922/105074862-cb955b00-5a3d-11eb-99c5-3125bb98910b.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-30T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://pradeeptadas.github.io/bquant/ghtop","@type":"BlogPosting","headline":"ghtop redux","dateModified":"2021-01-30T00:00:00-06:00","datePublished":"2021-01-30T00:00:00-06:00","image":"https://user-images.githubusercontent.com/1483922/105074862-cb955b00-5a3d-11eb-99c5-3125bb98910b.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/ghtop"},"author":{"@type":"Person","name":"<a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a>"},"description":"Things we learned by refactoring a CLI tool with fastcore, rich, and ghapi.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/bquant/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pradeeptadas.github.io/bquant/feed.xml" title="bquant blog" /><link rel="shortcut icon" type="image/x-icon" href="/bquant/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/bquant/">bquant blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bquant/about/">About Me</a><a class="page-link" href="/bquant/search/">Search</a><a class="page-link" href="/bquant/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ghtop redux</h1><p class="page-description">Things we learned by refactoring a CLI tool with <a href="">fastcore</a>, <a href="">rich</a>, and <a href="">ghapi</a>.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-30T00:00:00-06:00" itemprop="datePublished">
+        Jan 30, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name"><a href='https://twitter.com/HamelHusain'>Hamel Husain</a> & <a href='https://twitter.com/jeremyphoward'>Jeremy Howard</a></span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/bquant/categories/#ghapi">ghapi</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/bquant/categories/#fastacore">fastacore</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/bquant/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/2021-01-30-greenbook.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/bquant/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2F2021-01-30-greenbook.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bquant/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/2021-01-30-greenbook.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bquant/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-01-30-greenbook.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">1.</span> <span class="o">**</span><span class="n">Screwy</span> <span class="n">Pirates</span><span class="o">**</span> <span class="o">-</span> <span class="n">go</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">end</span><span class="o">.</span> <span class="n">For</span> <span class="nb">any</span> <span class="mi">2</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span> <span class="n">pirate</span> <span class="n">case</span><span class="p">,</span> <span class="n">most</span> <span class="n">senior</span> <span class="n">will</span> <span class="n">offer</span> <span class="n">pirates</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">..</span> <span class="mi">2</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="n">one</span> <span class="n">coin</span> <span class="n">each</span> <span class="ow">and</span> <span class="n">keep</span> <span class="n">rest</span> <span class="n">himself</span><span class="o">.</span>
+
+<span class="mf">2.</span> <span class="o">**</span><span class="n">Tiger</span> <span class="ow">and</span> <span class="n">Sheep</span><span class="o">**</span> <span class="n">If</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">tigers</span> <span class="ow">is</span> <span class="n">odd</span><span class="p">,</span> <span class="n">the</span> <span class="n">sheep</span> <span class="n">will</span> <span class="n">be</span> <span class="n">eaten</span><span class="o">.</span> <span class="n">Otherwise</span><span class="p">,</span> <span class="ow">not</span><span class="o">.</span>
+
+<span class="c1"># 2.2 </span>
+
+<span class="mf">3.</span> <span class="o">**</span><span class="n">River</span> <span class="n">Crossing</span><span class="o">**</span> <span class="n">A</span> <span class="o">-</span> <span class="mi">10</span> <span class="n">mins</span><span class="p">,</span> <span class="n">B</span> <span class="o">-</span> <span class="mi">5</span><span class="n">mins</span><span class="p">,</span> <span class="n">C</span> <span class="o">-</span> <span class="mi">2</span><span class="n">mins</span><span class="p">,</span> <span class="n">D</span> <span class="o">-</span> <span class="mi">1</span><span class="n">mins</span><span class="o">.</span> <span class="n">Min</span> <span class="n">time</span> <span class="n">to</span> <span class="n">cross</span> <span class="n">the</span> <span class="n">river</span><span class="o">.</span> <span class="n">Key</span> <span class="n">points</span> <span class="ow">is</span> <span class="n">that</span> <span class="mi">10</span> <span class="ow">and</span> <span class="mi">5</span> <span class="n">should</span> <span class="n">go</span> <span class="n">together</span><span class="o">.</span> <span class="n">C</span> <span class="o">&amp;</span> <span class="n">D</span> <span class="n">go</span> <span class="n">first</span><span class="p">,</span> <span class="mi">2</span> <span class="n">mins</span><span class="o">.</span> <span class="n">A</span> <span class="ow">and</span> <span class="n">B</span> <span class="n">go</span> <span class="n">across</span><span class="o">.</span> <span class="n">C</span> <span class="ow">and</span> <span class="n">D</span> <span class="n">cross</span> <span class="n">again</span><span class="o">.</span> 
+
+
+<span class="mf">4.</span> <span class="o">**</span><span class="n">Birthday</span> <span class="n">Problem</span><span class="o">**</span> <span class="n">Mar</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">8.</span> <span class="n">Jun</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">7.</span> <span class="n">Sep</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">5.</span> <span class="n">Dec</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">8.</span> <span class="n">A</span> <span class="n">told</span> <span class="n">you</span> <span class="n">month</span> <span class="n">of</span> <span class="n">birthday</span> <span class="ow">and</span> <span class="n">to</span> <span class="n">C</span> <span class="n">his</span> <span class="n">day</span><span class="o">.</span> <span class="n">After</span> <span class="n">that</span> <span class="n">you</span> <span class="n">said</span> <span class="s2">"I don't know A's birth day; C doesn't know it either."</span> <span class="o">--&gt;</span> <span class="n">This</span> <span class="n">means</span> <span class="n">Dec</span> <span class="ow">and</span> <span class="n">Jun</span> <span class="n">are</span> <span class="n">eliminated</span> <span class="k">as</span> <span class="n">they</span> <span class="n">have</span> <span class="n">unique</span> <span class="n">dates</span><span class="o">.</span> <span class="n">After</span> <span class="n">hearing</span> <span class="n">this</span> <span class="n">C</span> <span class="n">told</span> <span class="s2">"I didn't know A's birthday but now I know it."</span> <span class="n">Means</span> <span class="n">that</span> <span class="p">(</span><span class="n">Mar</span><span class="p">)</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="n">Mar</span><span class="p">,</span> <span class="n">Sep</span><span class="p">)</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="n">Mar</span><span class="p">)</span> <span class="mi">8</span><span class="p">,</span> <span class="p">(</span><span class="n">Sep</span><span class="p">)</span> <span class="mf">1.</span> <span class="n">Means</span> <span class="n">the</span> <span class="n">date</span> <span class="ow">is</span> <span class="n">unique</span><span class="o">.</span> <span class="n">So</span><span class="p">,</span> <span class="n">Mar</span><span class="o">/</span><span class="n">Sep</span> <span class="mi">5</span> <span class="ow">is</span> <span class="n">eliminated</span><span class="o">.</span> <span class="n">You</span> <span class="n">then</span> <span class="n">smiled</span> <span class="ow">and</span> <span class="n">told</span> <span class="s2">"Now I know it too."</span> <span class="n">So</span> <span class="n">month</span> <span class="ow">is</span> <span class="n">also</span> <span class="n">unique</span><span class="o">.</span> <span class="n">So</span> <span class="n">its</span> <span class="n">Sep</span> <span class="mf">1.</span> 
+
+<span class="mf">5.</span> <span class="o">**</span><span class="n">Card</span> <span class="n">Game</span><span class="o">**</span> <span class="mi">52</span> <span class="n">cards</span><span class="o">.</span> <span class="mi">2</span> <span class="n">cards</span> <span class="n">at</span> <span class="n">a</span> <span class="n">time</span><span class="o">.</span> <span class="n">Both</span> <span class="n">black</span> <span class="o">-&gt;</span> <span class="n">dealer</span><span class="s1">'s pile. Both red -&gt; your pile. 1 each -&gt; discarded. If you have more cards in pile then you win 100$. Else you get nothing. Howmuch you will pay to play the game? -- Discarded cards have equal red or black. So,dealer will have same red as you. So, you will never win.</span>
+
+<span class="mf">6.</span> <span class="o">**</span><span class="n">Burning</span> <span class="n">ropes</span><span class="o">**</span> <span class="mi">2</span> <span class="n">ropes</span> <span class="n">which</span> <span class="n">take</span> <span class="mi">1</span><span class="n">hr</span> <span class="n">each</span> <span class="n">to</span> <span class="n">burn</span><span class="o">.</span> <span class="n">Different</span> <span class="n">densities</span><span class="o">.</span> <span class="n">How</span> <span class="n">to</span> <span class="n">use</span> <span class="n">to</span> <span class="n">measure</span> <span class="mi">45</span> <span class="n">mins</span><span class="o">.</span> <span class="n">Light</span> <span class="n">both</span> <span class="n">ends</span> <span class="n">of</span> <span class="n">first</span> <span class="n">rope</span> <span class="n">to</span> <span class="n">get</span> <span class="mi">30</span><span class="n">mins</span><span class="o">.</span> <span class="n">In</span> <span class="n">the</span> <span class="n">sametime</span> <span class="n">light</span> <span class="n">one</span> <span class="n">end</span> <span class="n">of</span> <span class="n">second</span> <span class="n">rope</span><span class="o">.</span> <span class="n">After</span> <span class="n">first</span> <span class="n">rope</span> <span class="ow">is</span> <span class="n">completed</span><span class="p">,</span> <span class="n">burn</span> <span class="n">the</span> <span class="n">other</span> <span class="n">end</span> <span class="n">of</span> <span class="mi">2</span><span class="n">nd</span> <span class="n">rope</span> <span class="k">as</span> <span class="n">well</span> <span class="n">to</span> <span class="n">get</span> <span class="mi">15</span><span class="n">mins</span><span class="o">.</span> 
+
+<span class="mf">7.</span> <span class="o">**</span><span class="n">Defective</span> <span class="n">ball</span><span class="o">**</span> <span class="mi">12</span> <span class="n">identical</span> <span class="n">balls</span><span class="o">.</span> <span class="n">One</span> <span class="n">of</span> <span class="n">the</span> <span class="n">balls</span> <span class="ow">is</span> <span class="n">heavier</span> <span class="ow">or</span> <span class="n">lighter</span> <span class="n">than</span> <span class="n">the</span> <span class="n">rest</span><span class="o">.</span> <span class="n">How</span> <span class="n">to</span> <span class="n">determine</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">defective</span> <span class="k">with</span> <span class="mi">3</span> <span class="n">measurements</span><span class="err">?</span> <span class="o">-</span> <span class="n">Separate</span> <span class="n">the</span> <span class="n">original</span> <span class="n">group</span> <span class="n">into</span> <span class="n">three</span> <span class="n">sets</span><span class="o">.</span> <span class="n">Comparison</span> <span class="n">of</span> <span class="n">two</span> <span class="n">gives</span> <span class="n">info</span> <span class="n">about</span> <span class="n">third</span><span class="o">.</span> <span class="n">So</span><span class="p">,</span> <span class="mi">3</span><span class="o">^</span><span class="n">n</span> <span class="n">balls</span> <span class="n">can</span> <span class="n">be</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">n</span> <span class="n">steps</span><span class="o">.</span> <span class="n">If</span> <span class="n">you</span> <span class="n">dont</span> <span class="n">have</span> <span class="nb">any</span> <span class="n">info</span> <span class="n">about</span> <span class="n">ball</span> <span class="ow">is</span> <span class="n">lighter</span> <span class="ow">or</span> <span class="n">lower</span><span class="p">,</span> <span class="n">then</span> <span class="ow">in</span> <span class="n">n</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">identify</span> <span class="n">the</span> <span class="n">ball</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">3</span><span class="o">^</span><span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="n">balls</span><span class="o">.</span> 
+
+<span class="mf">8.</span> <span class="o">**</span><span class="n">Trailing</span> <span class="n">Zeros</span><span class="o">**</span> <span class="n">Trailing</span> <span class="n">zeros</span> <span class="ow">in</span> <span class="mi">100</span><span class="o">!</span>. Freq of <span class="m">2</span> is more than <span class="m">5</span>. So count <span class="m">5</span>. <span class="m">100</span>/5 + <span class="m">100</span>/25. <span class="o">=</span> <span class="m">24</span>. 
+
+<span class="mf">9.</span> <span class="o">**</span><span class="n">Horse</span> <span class="n">race</span><span class="o">**</span> <span class="mi">25</span> <span class="n">horses</span><span class="o">.</span> <span class="mi">5</span> <span class="n">can</span> <span class="n">race</span> <span class="n">at</span> <span class="n">a</span> <span class="n">time</span><span class="o">.</span> <span class="mi">3</span> <span class="n">fastest</span> <span class="n">horses</span><span class="o">.</span> <span class="n">Howmany</span> <span class="n">races</span><span class="err">?</span> <span class="mi">5</span> <span class="n">races</span> <span class="n">to</span> <span class="n">get</span> <span class="n">faster</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">group</span><span class="o">.</span> <span class="n">Then</span> <span class="n">race</span> <span class="n">amongst</span> <span class="n">them</span><span class="o">.</span> <span class="n">Then</span> <span class="n">accordingly</span> <span class="n">race</span> <span class="n">another</span> <span class="nb">round</span><span class="o">.</span> <span class="n">So</span> <span class="mi">3</span> <span class="n">rounds</span><span class="o">.</span> 
+
+<span class="mf">10.</span> <span class="o">**</span><span class="n">Infinite</span> <span class="n">Sequence</span><span class="o">**</span> <span class="n">x</span><span class="o">^</span><span class="n">x</span><span class="o">^...</span> <span class="o">=</span> <span class="mi">2</span> <span class="err">$</span>\<span class="n">implies</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">=</span> <span class="mi">2</span> \<span class="n">implies</span> <span class="n">x</span> <span class="o">=</span> \<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="err">$</span>
+
+<span class="c1"># 2.3</span>
+
+<span class="mf">11.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="pradeeptadas/bquant"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/bquant/ghtop" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/bquant/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/bquant/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/bquant/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Quant blogging with Jupyter Notebook Illustration.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/bquant/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/bquant/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
