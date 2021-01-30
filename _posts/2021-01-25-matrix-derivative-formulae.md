@@ -6,5 +6,4 @@ categories: [markdown]
 title: Important rules
 ---
 
-
-$$f(x)=x^TAx ~~ \implies \frac{\partial f}{\partial x} = (A^T+A)x $$
+Hello Friends.
