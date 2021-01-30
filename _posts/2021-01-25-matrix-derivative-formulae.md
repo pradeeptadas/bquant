@@ -2,8 +2,8 @@
 toc: true
 layout: post
 description: Derivative rules for matrices.
-categories: [markdown]
+categories: [mathematics]
 title: Important rules
 ---
 
-Hello Friends.
+$$f(x)=x^TAx \implies \frac{\partial f}{\partial x} = (A^T+A)x $$
