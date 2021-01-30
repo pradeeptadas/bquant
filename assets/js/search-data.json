@@ -14,9 +14,9 @@
     
         ,"post1": {
             "title": "Important rules",
-            "content": "Hello Friends. .",
-            "url": "https://pradeeptadas.github.io/bquant/markdown/2021/01/25/matrix-derivative-formulae.html",
-            "relUrl": "/markdown/2021/01/25/matrix-derivative-formulae.html",
+            "content": "f(x)=xTAx  ⟹  ∂f∂x=(AT+A)xf(x)=x^TAx implies frac{ partial f}{ partial x} = (A^T+A)xf(x)=xTAx⟹∂x∂f​=(AT+A)x .",
+            "url": "https://pradeeptadas.github.io/bquant/mathematics/2021/01/25/matrix-derivative-formulae.html",
+            "relUrl": "/mathematics/2021/01/25/matrix-derivative-formulae.html",
             "date": " • Jan 25, 2021"
         }
         
