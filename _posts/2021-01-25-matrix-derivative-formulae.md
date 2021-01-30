@@ -6,6 +6,5 @@ categories: [markdown]
 title: Important rules
 ---
 
-# Matrix Derivative Formulae
 
 $$f(x)=x^TAx ~~ \implies \frac{\partial f}{\partial x} = (A^T+A)x $$
