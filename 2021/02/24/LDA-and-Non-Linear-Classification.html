@@ -4,20 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Brain Teasers | bquant blog</title>
+<title>LDA (Linear Discriminant Analysis) | bquant blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Brain Teasers" />
+<meta property="og:title" content="LDA (Linear Discriminant Analysis)" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="My notes from the green book." />
-<meta property="og:description" content="My notes from the green book." />
-<link rel="canonical" href="https://pradeeptadas.github.io/bquant/interview/puzzle/2021/01/30/greenbook.html" />
-<meta property="og:url" content="https://pradeeptadas.github.io/bquant/interview/puzzle/2021/01/30/greenbook.html" />
+<meta name="description" content="Quant blogging with Jupyter Notebook Illustration." />
+<meta property="og:description" content="Quant blogging with Jupyter Notebook Illustration." />
+<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/02/24/LDA-and-Non-Linear-Classification.html" />
+<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/02/24/LDA-and-Non-Linear-Classification.html" />
 <meta property="og:site_name" content="bquant blog" />
-<meta property="og:image" content="https://pradeeptadas.github.io/bquant/images/logo.JPG" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-30T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-02-24T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pradeeptadas.github.io/bquant/interview/puzzle/2021/01/30/greenbook.html","@type":"BlogPosting","headline":"Brain Teasers","dateModified":"2021-01-30T00:00:00-06:00","datePublished":"2021-01-30T00:00:00-06:00","image":"https://pradeeptadas.github.io/bquant/images/logo.JPG","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/interview/puzzle/2021/01/30/greenbook.html"},"description":"My notes from the green book.","@context":"https://schema.org"}</script>
+{"url":"https://pradeeptadas.github.io/bquant/2021/02/24/LDA-and-Non-Linear-Classification.html","@type":"BlogPosting","headline":"LDA (Linear Discriminant Analysis)","dateModified":"2021-02-24T00:00:00-06:00","datePublished":"2021-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/02/24/LDA-and-Non-Linear-Classification.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/bquant/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pradeeptadas.github.io/bquant/feed.xml" title="bquant blog" /><link rel="shortcut icon" type="image/x-icon" href="/bquant/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,8 +87,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Brain Teasers</h1><p class="page-description">My notes from the green book.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-30T00:00:00-06:00" itemprop="datePublished">
-        Jan 30, 2021
+    <h1 class="post-title p-name" itemprop="name headline">LDA (Linear Discriminant Analysis)</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-24T00:00:00-06:00" itemprop="datePublished">
+        Feb 24, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -99,35 +98,25 @@ window.onload = wrap_img;
 </span></p>
 
     
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
-      
-        <a class="category-tags-link" href="/bquant/categories/#interview">interview</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/bquant/categories/#puzzle">puzzle</a>
-        
-      
-      </p>
-    
 
     
       
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/2021-01-30-greenbook.ipynb" role="button" target="_blank">
+    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/LDA and Non-Linear Classification.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/bquant/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2F2021-01-30-greenbook.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2FLDA+and+Non-Linear+Classification.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/2021-01-30-greenbook.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/LDA and Non-Linear Classification.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -135,66 +124,92 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#2.1">2.1 </a></li>
-<li class="toc-entry toc-h1"><a href="#2.2">2.2 </a></li>
-<li class="toc-entry toc-h1"><a href="#2.3">2.3 </a></li>
-</ul><!--
+    <!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-01-30-greenbook.ipynb
+# file to edit: _notebooks/LDA and Non-Linear Classification.ipynb
 -->
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.1">
-<a class="anchor" href="#2.1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1<a class="anchor-link" href="#2.1"> </a>
-</h1>
-<ol>
-<li>
-<p><strong>Screwy Pirates</strong> - go from the end. For any 2n+1 pirate case, most senior will offer pirates 1, 3, .. 2n-1 one coin each and keep rest himself.</p>
-</li>
-<li>
-<p><strong>Tiger and Sheep</strong> If the number of tigers is odd, the sheep will be eaten. Otherwise, not.</p>
-</li>
-</ol>
-<h1 id="2.2">
-<a class="anchor" href="#2.2" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2<a class="anchor-link" href="#2.2"> </a>
-</h1>
-<ol>
-<li>
-<p><strong>River Crossing</strong> A - 10 mins, B - 5mins, C - 2mins, D - 1mins. Min time to cross the river. Key points is that 10 and 5 should go together. C &amp; D go first, 2 mins. A and B go across. C and D cross again.</p>
-</li>
-<li>
-<p><strong>Birthday Problem</strong> Mar 4, 5, 8. Jun 4, 7. Sep 1, 5. Dec 1, 2, 8. A told you month of birthday and to C his day. After that you said "I don't know A's birth day; C doesn't know it either." --&gt; This means Dec and Jun are eliminated as they have unique dates. After hearing this C told "I didn't know A's birthday but now I know it." Means that (Mar) 4, (Mar, Sep) 5, (Mar) 8, (Sep) 1. Means the date is unique. So, Mar/Sep 5 is eliminated. You then smiled and told "Now I know it too." So month is also unique. So its Sep 1.</p>
-</li>
-<li>
-<p><strong>Card Game</strong> 52 cards. 2 cards at a time. Both black -&gt; dealer's pile. Both red -&gt; your pile. 1 each -&gt; discarded. If you have more cards in pile then you win 100$. Else you get nothing. Howmuch you will pay to play the game? -- Discarded cards have equal red or black. So,dealer will have same red as you. So, you will never win.</p>
-</li>
-<li>
-<p><strong>Burning ropes</strong> 2 ropes which take 1hr each to burn. Different densities. How to use to measure 45 mins. Light both ends of first rope to get 30mins. In the sametime light one end of second rope. After first rope is completed, burn the other end of 2nd rope as well to get 15mins.</p>
-</li>
-<li>
-<p><strong>Defective ball</strong> 12 identical balls. One of the balls is heavier or lighter than the rest. How to determine which is defective with 3 measurements? - Separate the original group into three sets. Comparison of two gives info about third. So, 3^n balls can be done in n steps. If you dont have any info about ball is lighter or lower, then in n measurements, you can identify the ball in (3^n - 3)/2 balls.</p>
-</li>
-<li>
-<p><strong>Trailing Zeros</strong> Trailing zeros in 100!. Freq of 2 is more than 5. So count 5. 100/5 + 100/25. = 24.</p>
-</li>
-<li>
-<p><strong>Horse race</strong> 25 horses. 5 can race at a time. 3 fastest horses. Howmany races? 5 races to get faster in each group. Then race amongst them. Then accordingly race another round. So 3 rounds.</p>
-</li>
-<li>
-<p><strong>Infinite Sequence</strong> x^x^... = 2 $\implies x^2 = 2 \implies x = \sqrt{2}$</p>
-</li>
-</ol>
-<h1 id="2.3">
-<a class="anchor" href="#2.3" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3<a class="anchor-link" href="#2.3"> </a>
-</h1>
-<p>11.</p>
+<p>M data obervations, each in $\mathbb{R}^N$. i.e. $x \in \mathbb{R}^N, m = 1, ..., M$</p>
+<p>We know that observations come from two types of points. A-points and B-points.</p>
+<p>Both points are normally distributed and different variance-covariance matrices.</p>
+<p>For the points, we have to classify each of them belong to type-A or type-B i.e. $t^{'}_m \in {A, B}$</p>
+<p>minimize the likelihood:</p>
+<p>min $\alpha^A\mathbb{P}(t^{'} = A | t=B) + \alpha^B\mathbb{P}(t^{'} =B | t=A)$</p>
+<p>So we want to find two subplanes separated by a hyperplane. One side is type A and one is type B.
+i.e. find $v \in \mathbb{R}^N$ and $c \in \mathbb{R}$ such that</p>
+<ul>
+<li>$v^T x^m &lt; c \implies t^{'} = A$</li>
+<li>$v^T x^m &gt; c \implies t^{'} = B$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For a 1-D case, probability of misclassifying A is $1 - \Phi(\frac{c-\mu_A}{\sigma_A})$.</p>
+<p>Similarly, for misclassifying B is $\Phi(\frac{c-\mu_B}{\sigma_B})$.</p>
+<p>We want to minimize this probability.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Proof">Proof<a class="anchor-link" href="#Proof"> </a></h2><p>Without loss of generality $v = 1$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$c = \frac{\sigma^2_B}{\sigma^2_A + \sigma^2_B} \mu_A + \frac{\sigma^2_A}{\sigma^2_A + \sigma^2_B} \mu_B$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For multivariate case,</p>
+<p>$v = (\Sigma_A+\Sigma_B)^{-1} $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For linear discriminant analysis we generally assume $\Sigma_A = \Sigma_B$.  For this case $\alpha_A = \alpha_B = 1$, so same weight on A and B misclassification.</p>
+<p>We generally go for Quadratic Discriminant Analysis (QDA) when $\Sigma_A \neq \Sigma_B$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Nonlinear-Classification-Problem">Nonlinear Classification Problem<a class="anchor-link" href="#Nonlinear-Classification-Problem"> </a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the non-linear data, LDA is not a suitable method as we cant find a line to separate these.</p>
+<div style="text-align:center"><img src="../images/non-linear-classification.JPG" /></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here, Machine Learning comes into play! 
+In linear case, we try to increase the dimensionality for more complex problems. But in Machine learning it does the simple thing over and over again.</p>
+<p>Lets consider a nonlinear approximation $$ (Ax + b)_+.$$ Here the nonlinear operation is $(x)_+$. It's a ReLU operator. We do this elementwise on the vector and then we sum the vectors by multiplying with $1$ vector. $F = \textbf{1'F}$ These are not so nice because they are piece-wise linear but not continuously differentiable.</p>
+<p>For different A and B, we will get very different level sets. So, by iterating again and again we can generate a continuous function! Piece-wise linearity and continuity kept, regardless of N. Is it continuously diffentiable?</p>
+<p>Basically this is what the neural network optimization does!</p>
 
 </div>
 </div>
@@ -203,15 +218,7 @@ window.onload = wrap_img;
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="pradeeptadas/bquant"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/bquant/interview/puzzle/2021/01/30/greenbook.html" hidden></a>
+  </div><a class="u-url" href="/bquant/2021/02/24/LDA-and-Non-Linear-Classification.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

@@ -4,19 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | bquant blog</title>
+<title>Partial Differential Equation | bquant blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Partial Differential Equation" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Quant blogging with Jupyter Notebook Illustration." />
 <meta property="og:description" content="Quant blogging with Jupyter Notebook Illustration." />
-<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/01/30/Essential-Real-Analysis.html" />
-<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/01/30/Essential-Real-Analysis.html" />
+<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/02/24/PDE.html" />
+<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/02/24/PDE.html" />
 <meta property="og:site_name" content="bquant blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-30T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-02-24T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pradeeptadas.github.io/bquant/2021/01/30/Essential-Real-Analysis.html","@type":"BlogPosting","headline":"Title","dateModified":"2021-01-30T00:00:00-06:00","datePublished":"2021-01-30T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/01/30/Essential-Real-Analysis.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
+{"url":"https://pradeeptadas.github.io/bquant/2021/02/24/PDE.html","@type":"BlogPosting","headline":"Partial Differential Equation","dateModified":"2021-02-24T00:00:00-06:00","datePublished":"2021-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/02/24/PDE.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/bquant/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pradeeptadas.github.io/bquant/feed.xml" title="bquant blog" /><link rel="shortcut icon" type="image/x-icon" href="/bquant/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -87,8 +87,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-30T00:00:00-06:00" itemprop="datePublished">
-        Jan 30, 2021
+    <h1 class="post-title p-name" itemprop="name headline">Partial Differential Equation</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-24T00:00:00-06:00" itemprop="datePublished">
+        Feb 24, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -104,19 +104,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/2021-01-30-Essential-Real-Analysis.ipynb" role="button" target="_blank">
+    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/PDE.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/bquant/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2F2021-01-30-Essential-Real-Analysis.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2FPDE.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/2021-01-30-Essential-Real-Analysis.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/PDE.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -128,88 +128,16 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-01-30-Essential-Real-Analysis.ipynb
+# file to edit: _notebooks/PDE.ipynb
 -->
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><b>Relation</b></p>
-<p>Subset of product set $R \subset A \times B$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Function</strong></p>
-<p>Relation on $A \times B$, such that A related to B. It can be onto / one-to-one / bijection.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Convergence</strong></p>
-<p>We know the cauchy sequence, 1.2, 1.22, 1.222, ... .
-But Does this converge? To generalize this concept, we have to introduct Metric space.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Metric Space</strong></p>
-<p>It has the distance function. with triangle inequality.</p>
-<p>It has the concept of Convergence which means $\forall \epsilon&gt;0, ~~ \exists N: n \geq N \implies d(x_n, x) &lt; \epsilon$</p>
-<p>Similarly, cauchy sequence means $\forall \epsilon &gt; 0, ~~ M \geq N, \implies d(x_n, x) &lt; \epsilon$. This is weaker concept than convergence and it has no reference point like convergence.</p>
-<p>In complete metric spaces, cauchy sequence converges as well.</p>
-<p>For example, $1, 1.41, 1.414, ... \rightarrow \sqrt{2}$ is a cachy sequency in $\mathbb{Q}$ but converges in $\mathbb{R}$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Vector Space</strong></p>
-<p>Metric space gives abstract space for distance. 
-Similarly, this is abstract space for vector operation.</p>
-<p>It has $\times : F \times V \rightarrow V$ (F is called field here)
-It also has $+ : V + V \rightarrow V$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Normed Space</strong>
-Vector + Metric Space (with "norm" distance function)</p>
-<p>norm funcion $\parallel \cdot \parallel$: $V \rightarrow \mathbb{R}_+$</p>
-<p>Norm makes V into special metric space since $d(u, v) = \parallel u-v \parallel$ satisfies axioms of metric space.</p>
-<p>$\boxed{\text{Complete norm space is called Banach Space.}}$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Inner Product Space</strong>
-Vector Space with inner product</p>
-<p>$&lt;\cdot, \cdot&gt;: V \times V \rightarrow \mathbb{R}$</p>
-<p>This is a special case of normed space $\implies \parallel u \parallel = \sqrt{&lt;u, v&gt;}$</p>
-<p>$\boxed{\text{Complete inner product space is called Hilbert Space.}}$</p>
-<p>Inner product space adds the concept of angles.</p>
-<p>$\frac{&lt;u, v&gt;}{\parallel u \parallel \parallel v \parallel} = cos \phi$</p>
-
-</div>
-</div>
-</div>
 </div>
 
 
 
-  </div><a class="u-url" href="/bquant/2021/01/30/Essential-Real-Analysis.html" hidden></a>
+  </div><a class="u-url" href="/bquant/2021/02/24/PDE.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

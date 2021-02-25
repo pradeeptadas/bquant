@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Integration | bquant blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Integration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Quant blogging with Jupyter Notebook Illustration." />
+<meta property="og:description" content="Quant blogging with Jupyter Notebook Illustration." />
+<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/02/24/Integration.html" />
+<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/02/24/Integration.html" />
+<meta property="og:site_name" content="bquant blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-24T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://pradeeptadas.github.io/bquant/2021/02/24/Integration.html","@type":"BlogPosting","headline":"Integration","dateModified":"2021-02-24T00:00:00-06:00","datePublished":"2021-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/02/24/Integration.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/bquant/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pradeeptadas.github.io/bquant/feed.xml" title="bquant blog" /><link rel="shortcut icon" type="image/x-icon" href="/bquant/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/bquant/">bquant blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bquant/about/">About Me</a><a class="page-link" href="/bquant/search/">Search</a><a class="page-link" href="/bquant/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Integration</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-24T00:00:00-06:00" itemprop="datePublished">
+        Feb 24, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/Integration.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/bquant/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2FIntegration.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bquant/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/Integration.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bquant/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/Integration.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Integration is area under graph.</p>
+<h2 id="Reimann-/-Darboux-Integral">Reimann / Darboux Integral<a class="anchor-link" href="#Reimann-/-Darboux-Integral"> </a></h2><p>Assume a bounded function $f: [a,b] \rightarrow \mathbb{R}$
+Here we partition the interval into smaller ones. For that we choose finite sequence of points $a = x_0 \leq x_1 \leq x_2 .. x_n = b$</p>
+<p>How given the partition define,</p>
+<p>
+$$M_i = {sup}_{x_{i-1} \leq x \leq x_i f(x)}$$
+
+$$m_i = {inf}_{x_{i-1} \leq x \leq x_i f(x)}$$ 
+
+$$\Delta x_i = x_i - x_{i+1}$$
+
+
+$$U(P, f) = \sum_i M_i \Delta x_i$$
+
+
+$$L(P, f) = \sum_i m_i \Delta x_i$$
+</p>
+<div style="text-align:center"><img src="../images/integral.JPG" /></div><p>Now we define an uppper integral $\int_{a}^{b} inf_{P} U(P, f)$  - which is infimum over all partitions of the sums that we get for a specific partition. (i.e. make finer partitions as well, and sum. Over all such parititon sums, take the minumum one). Similarly lower integral - $\int_{a}^{b} sup_{P} L(P, f)$</p>
+<p>If f is bounded from below and above in [a,b], then both the upper and lower integral exists. They converge but might converge to different numbers!</p>
+<p>But $\int_{a}^{b} sup_{P} L(P, f)  \leq \int_{a}^{b} inf_{P} U(P, f)$
+So this says that the lower sum is less than equal to upper sum. This will exists in limit as well.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><ins>Reimann Integral</ins> says that, if both these integrals are the same then the Reimann integral exists. </li>
+</ul>
+<p>
+$$\int_{a}^{b} f(x) dx = \int_{a}^{b} sup_{P} L(P, f)  = \int_{a}^{b} inf_{P} U(P, f)$$
+</p>
+<ul>
+<li><p>If f is bounded on [a,b] and continuous except for a finite number of points, 
+then f is Riemann integrable, $f \in R$</p>
+</li>
+<li><p>This intuition is captured by the above image. Becase as partition becomes very high, then both will converge to the same number.</p>
+</li>
+<li><p>For the finite number of discontinuity - intuition is that because we are shiriking the partitions to very small, then it will converge to the same number.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Integration and Sequences</strong></p>
+<p>If we have a sequence of functions $f_n : [a, b] \rightarrow \mathbb{R}$ is said to converge uniformly to the function f if $f_n \rightarrow d_c f$ i.e. if it converges in the supremum norm.</p>
+<p>$d_c$ is the norm / distant function. 
+$d_c (f_1, f_2) = || f_1 - f_2 ||_{dc} = sup_{x \in [a, b]} |f_1 - f_2|$.</p>
+<p>i.e. supremum norm is the maximum distance between $f_1$ and $f_2$ in the interval [a,b]</p>
+<div style="text-align:center"><img src="../images/supremum-norm.JPG" /></div><ul>
+<li><p>This is stronger than pointwise convergence. This is similar as we had discussed about uniform and pointwise continutity.</p>
+</li>
+<li><p>Pointwise: we chose x and check if the functions are converging at that point to f. i.e. $\forall x ~~~ \forall \epsilon &gt; 0  ~~~ \exists n: |f_n(x) - f(x)| &lt; \epsilon $ Here we are allowed to chose n based on x.</p>
+</li>
+</ul>
+<ul>
+<li>Uniform convergence:  Here we choose n and that should be valid for all x. $\forall \epsilon &gt; 0 ~~~ \exists n ~~~\forall x: |f_n(x) - f(x)| &lt; \epsilon $</li>
+</ul>
+<ul>
+<li><p>We want to check if <ins> we can switch the order of integration and limit </ins>. Theorem says that,</p>
+</li>
+<li><p>If $f_n$ is a Reimann, for each n and $f_n$ converges uniformly to f, then</p>
+</li>
+</ul>
+<p>
+$$ lim_{n \rightarrow \infty} \int_a^b f_n(x) dx =  \int_a^b lim_{n \rightarrow \infty} f_n(x) dx = \int_a^b f(x) dx $$
+</p>
+<ul>
+<li>This doesn't hold for regular pointwise convergence. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Why do we need uniform convergence? Any counter-example?</strong></p>
+<p>Example is <div style="text-align:center"><img src="../images/counter-seq-int.JPG" /></div></p>
+<p>Doubt:  How is f_n pointwise converging here? what is the f?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Fundamental-Theorem-of-Calculus">Fundamental Theorem of Calculus<a class="anchor-link" href="#Fundamental-Theorem-of-Calculus"> </a></h3><p>If $f \in R$ (Reimann Integrable) on [a,b] and if there is a differentiable function $F$ on [a, b], fuch that $F' = f$, then</p>
+<p>
+$$ \int_a^b f(x) dx = F(b) - F(a)$$
+</p>
+<p>F is a primitive function (anti-derivative) of f.</p>
+<p>This leads to <ins>Integration by parts</ins>: $\int_b^b F(x) g(x) dx = F(b)G(b) - F(a)G(a) - \int_a^b f(x) G(x) dx$</p>
+<p>$\implies \int_a^b \frac{\partial}{\partial x} (F \cdot G) dx = F \cdot G |_a^b$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Properties-that-hold-almost-everywhere">Properties that hold almost everywhere<a class="anchor-link" href="#Properties-that-hold-almost-everywhere"> </a></h2><p>Lebesgue integral is more general than the Riemann integral. This is based on Measure theory. A lot of function's area is not defined by Reimann. So we define Lebesgue integral for those cases. But here that route is not taken. But we will use measure-zero property which is common in lebesgue integral.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><ins>almost everywhere</ins>:</p>
+<p>Consider a set $A \subset \mathbb{R} $. $B = \cup_{i=1}^{\infty} (a_i, b_i)~~~$   (Union of open intervals is open) - is an open cover of $A$ if $A \subset B$</p>
+<p>What is the size of A? - its going to be less than equal to the total size of all such intervals. i.e.</p>
+<ul>
+<li>If the intervals $(a_i, b_i)$ are disjoint, then their total lenth is $L(B) = \sum_i (b_i - a_i)$</li>
+<li>If the intervals are not disjoint, then their total length is less than $L(B)$</li>
+</ul>
+<p>The set $A$ is of <ins>measure zero</ins> if for any $\epsilon &gt; 0$, there is an open cover, $B_{\epsilon}$ of A, such that $L(B_{\epsilon}) \leq \epsilon$.</p>
+<p>A function, $f : \mathbb{R} \rightarrow \mathbb{R}$ has a property (e.g., being positive) almost everywhere if the property is not satisfied on a set measure zero.</p>
+<p>Why it is useful?
+Properties that fail on zero measure, i.e. properties that hold almost everywhere, they are enough for whatever you want to hold. We don't have to require the function to be true everywhere, as long as they are true almost everywhere.</p>
+<p>Classical example for which the property fails. -&gt; 
+f(x) = 1 for $x \in \mathbb{Q}$, 0 otherwise
+$\mathbb{Q}$ is of the form p/q.</p>
+<p>The set of rational number is dense in the set of real numbers, it will contain a lot of 1's and 0's. But this is zero almost everywhere.</p>
+<p>We can show it by showing measure zero. Choose $B_i = (x_i - \epsilon / 4 2^{-i}, x_i + \epsilon / 4 2^{-i})$</p>
+<p>So it shows that the set Q has meaure zero. So, function f is zero almost everywhere because it fails to have the property in zero measure.</p>
+<div style="text-align:center"><img src="../images/almost-everywhere.JPG" /></div><p>This is not reimann. So the lower is always 0 and upper is 1. Because there are rational and non-rational numbers in any interval.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Necessary and sufficient Condition to be Riemann</strong></p>
+<p>The bounded function f is Riemann integrable on [a,b] <ins>if and only if</ins> f is almost everywhere continuous on [a,b].</p>
+<p>Sufficient condition for a function to be reimann is f has to be bounded on [a, b] and has to be continuous except for at a finite number of points.</p>
+<p>The finite discontinuous points would be in zero measure, so it would be covered in the first condition above in the necessary and sufficient condition. Also the infinite number of ups and downs has to be zero measure. In the example of $1$ if $x \in \mathbb{Q}$ is not really finitely discontinuous. So its not Reimann.</p>
+<p>The failure of Reimann is not so much important why we need Ito.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Riemann-Stieltjes-Integral">Riemann-Stieltjes Integral<a class="anchor-link" href="#Riemann-Stieltjes-Integral"> </a></h2><p>Its a generalisation of Riemann.</p>
+<p>We assume bounded $f : [a, b] \rightarrow \mathbb{R}$, partition, $M_i$, $m_i$. But instead of $\Delta x_i$ we use $\Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1})$</p>
+<ul>
+<li>If $\alpha$ is a smooth function: $\alpha(x_{i}+\Delta x_i) - \alpha(x_{i}) = \alpha(x_{i}) +\Delta x_i \alpha'(x_{i}) - \alpha(x_{i}) = \Delta x_i \alpha'(x_{i})$. This is the first order approx. So, the derivative of $\alpha$ is what governs the integral. </li>
+</ul>
+<ul>
+<li><p>So the definition now is similar to Reimann. but instead of $dx$ use $d\alpha$. If upper and lower integral match, then $f \in R(\alpha)$. If $\alpha(x) = x$, it is same as Reimann.</p>
+</li>
+<li><p>If f moves around a lot in short interval, then it is difficult for $m_i$ to conervge to same number. For Stieltjes, $\alpha$ too has to be same property i.e. its moving around a lot will make the integral undefined.</p>
+</li>
+</ul>
+<h2 id="Holder-Continuity">Holder Continuity<a class="anchor-link" href="#Holder-Continuity"> </a></h2><p>Now we want to define the continuity. It extends to functions which are differentiable as well as not differentiable. A function , $f$, is locally holder continuous with exponent $\alpha \in [0,1]$ if,</p>
+<p>
+$$ \frac{|f(t+h)-f(t)|}{|h|^{\alpha}} \leq C \leq \infty$$
+</p>
+<ul>
+<li><p>For regular derivative, we define $\alpha = 1$. If we allow $\alpha$ to be $&lt; 1$, then as $h \rightarrow 0$, the $h^{\alpha}$ will not tend to zero as quickly because $\alpha$ will slow it down. So it is easier for the ratio to be finite.</p>
+</li>
+<li><p>The larger $\alpha$, the stronger the condition.</p>
+</li>
+<li><p>$\alpha = 0.5$ is for brownian motion. They are not smooth enough to be differentiable. But they are not completely differentiable!</p>
+</li>
+</ul>
+<p>Failure of an extension of Riemann-Stieltjes Integral is what leads us to Ito calculus!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Coming back to Stieltjes Integral</strong></p>
+<ul>
+<li>If $\alpha$ differentiable, $\int f d\alpha = \int f \alpha' dx$, i.e. just the inegration is scaled with $\alpha'$</li>
+</ul>
+<p>
+$$\int \alpha d\alpha = \int \alpha \alpha' dx = \int_a^b \frac{1}{2} \frac{d}{dx} \alpha^2 (x) |_a^b = \frac{\alpha^2 (b)}{2} - \frac{\alpha^2 (a)}{2} $$
+</p>
+<h2 id="Young's-theorem">Young's theorem<a class="anchor-link" href="#Young's-theorem"> </a></h2><p>It says that the joint codition of $f$ and $\alpha$ with exponents $a$, $b$ respectively, $a+b&gt;1$ then $f \in R(\alpha)$ i.e. Stieltjes integral.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Examples:</p>
+<p>$$f(x) = e^x, \alpha(x) = \theta(x- 1/2) \theta~~~\text{is heavyside}~~~$$
+  $d\alpha = 0$ if $$</p>
+<p>Answer is $e^{\frac{1}{2}}$
+So, this integral is more useful than riemann. This is another reason why the stiltzer equation is important!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/bquant/2021/02/24/Integration.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/bquant/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/bquant/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/bquant/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Quant blogging with Jupyter Notebook Illustration.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/bquant/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/bquant/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
