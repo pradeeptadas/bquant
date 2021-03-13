@@ -4,19 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Example | bquant blog</title>
+<title>CEF - Conditional Expectation Function | bquant blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Example" />
+<meta property="og:title" content="CEF - Conditional Expectation Function" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Quant blogging with Jupyter Notebook Illustration." />
 <meta property="og:description" content="Quant blogging with Jupyter Notebook Illustration." />
-<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/02/24/Statistics-Regression-BLP.html" />
-<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/02/24/Statistics-Regression-BLP.html" />
+<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/03/11/Statistics-Regression-CEF.html" />
+<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/03/11/Statistics-Regression-CEF.html" />
 <meta property="og:site_name" content="bquant blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-02-24T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-03-11T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pradeeptadas.github.io/bquant/2021/02/24/Statistics-Regression-BLP.html","@type":"BlogPosting","headline":"Example","dateModified":"2021-02-24T00:00:00-06:00","datePublished":"2021-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/02/24/Statistics-Regression-BLP.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
+{"url":"https://pradeeptadas.github.io/bquant/2021/03/11/Statistics-Regression-CEF.html","@type":"BlogPosting","headline":"CEF - Conditional Expectation Function","dateModified":"2021-03-11T00:00:00-06:00","datePublished":"2021-03-11T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/03/11/Statistics-Regression-CEF.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/bquant/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pradeeptadas.github.io/bquant/feed.xml" title="bquant blog" /><link rel="shortcut icon" type="image/x-icon" href="/bquant/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -87,13 +87,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Example</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-24T00:00:00-06:00" itemprop="datePublished">
-        Feb 24, 2021
+    <h1 class="post-title p-name" itemprop="name headline">CEF - Conditional Expectation Function</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-11T00:00:00-06:00" itemprop="datePublished">
+        Mar 11, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -104,19 +104,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/Statistics-Regression-BLP.ipynb" role="button" target="_blank">
+    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/2021-03-11-Statistics-Regression-CEF.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/bquant/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2FStatistics-Regression-BLP.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2F2021-03-11-Statistics-Regression-CEF.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/Statistics-Regression-BLP.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/2021-03-11-Statistics-Regression-CEF.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -128,109 +128,112 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/Statistics-Regression-BLP.ipynb
+# file to edit: _notebooks/2021-03-11-Statistics-Regression-CEF.ipynb
 -->
 
 <div class="container" id="notebook-container">
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So CEF can be non-linear. Here we will explore what we do to get a linear predictor?</p>
-<h3 id="Linear-CEF">Linear CEF<a class="anchor-link" href="#Linear-CEF"> </a></h3><p>$m(x) = E(y|\textbf{x})$ is linear in x.</p>
-<p>
-$$ m(\textbf{x}) = \textbf{x'}\beta + e \implies y = \textbf{x'}\beta + e  $$
+<h3 id="Theorem-Law-of-Iterated-Expectations">Theorem Law of Iterated Expectations<a class="anchor-link" href="#Theorem-Law-of-Iterated-Expectations"> </a></h3><p>If $E(|y|) &lt; \infty$, then for any random variable $\textbf{x}$:
 
-Here the error doesnt have the mean error property! Because we are breaking down as linear vs nonlinear part.</p>
-<p>Generic notation of a linear model:</p>
-<p>
-$$ m(x) = \textbf{x'}\beta, x = (x_1, x_2, ... x_k)'$$
+$$E(E(y|\textbf{x})) = E(y)$$
 </p>
-<p>But typically x includes a constant.</p>
-<p>So it is convenient to write as $y = \alpha + \textbf{x'}\beta + e$
-But if you take expectations on both sides ad solve for $\alpha$ and substitute:</p>
-<p>$y - \mu_y = (x - \mu_x)' \beta + e \implies \overline{y} = \overline{x'} \beta+ e$</p>
-<p>So, you can de-mean any series and write in this format!</p>
+<h3 id="General-Law-of-Iterated-Expectations">General Law of Iterated Expectations<a class="anchor-link" href="#General-Law-of-Iterated-Expectations"> </a></h3><p>If $E(|y|) &lt; \infty$, then for any random variable $\textbf{x}_1$, $\textbf{x}_2$:
+
+$$ E(E(y|\textbf{x}_1, \textbf{x}_2)|\textbf{x}_1) = E(y|\textbf{x}_1)$$
+</p>
+<h3 id="Conditioning-Theorem">Conditioning Theorem<a class="anchor-link" href="#Conditioning-Theorem"> </a></h3><p>If $E(|g(\textbf{x})y|) &lt; \infty$,</p>
+<p>
+$$ E(g(\textbf{x})y|\textbf{x}) = g(\textbf{x}) E(y|\textbf{x})$$
+</p>
+<p>and</p>
+<p>
+$$ E(g(\textbf{x})y) = E(g(\textbf{x}) E(y|\textbf{x}))$$
+</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We know that the conditional mean is the best predictor of y. 
-But what is the best predictor $m(x)$ in the linear family of regrressors?</p>
-<p>Assumptions are, $Q_{xx} = E(xx')$ is positive definite. This is going to be a second moment matrix.</p>
-<p><strong>Best Linear Predictor</strong></p>
+<h2 id="CEF-Error">CEF Error<a class="anchor-link" href="#CEF-Error"> </a></h2><p>The CEF error e is the differnce between y and CEF $m(\textbf{x})$: $e = y - m(x)$</p>
+<p>$E(e|\textbf{x}) = E(y-m(\textbf{x}) | \textbf{x}) = E(y|\textbf{x}) - m(\textbf{x}) = 0$</p>
+<p>Law of Iterated expectations shows more!:
+$E(e) = E(E(e|\textbf{x})) = E(0) = 0$</p>
+<p>For any $h(\textbf{x})$ : $E(h(\textbf{x})e) = 0$</p>
+<p>Any predictor $g(x)$ is the CEF if and only if: $ E(e_g| \textbf{x}) = 0$</p>
+<p>Example: Intercept Model:
+Here $m(x)$ is a constant $ = E(y) = \mu$</p>
+<h3 id="Variance-of-the-CEF-Error">Variance of the CEF Error<a class="anchor-link" href="#Variance-of-the-CEF-Error"> </a></h3><p>If we didnt observe x, m(x) would be a constant which is mean of y i.e. $E(y)$. But given that we observe x, it gives a lot more information to us. $m(x)$ is a function of x and we can predict how y would behave with different x.</p>
+<p>How can we measure how much extra information x is giving? Ans: by computing variance of error. If there is less variance, then more information in x. High variance means less information in x. The variance measures the variation in y that is not explained by the conditional mean $E(y|x)$.</p>
+<p>$Var(e) = E((e- E(e))^2) = E(e^2)$. The error variance depends on x. Because, 
+lets say 2 models:</p>
+<p>$y = E(y|x_1) + e_1$</p>
+<p>$y = E(y|x_1, x_2) + e_2$</p>
+<p>$\implies \sigma_1^2 \neq \sigma_2^2$</p>
+<p>Theorem: $Var(y) \geq Var(y - E(y|x_1))$ (more info $\implies$ less variance)</p>
+<p><strong><ins>Example</ins></strong></p>
 <ul>
-<li><p>MSE is $S(\beta) = E(y - \textbf{x}'\beta)^2$</p>
-</li>
-<li><p>The best linear predictor of y given $\textbf{x}$ is $P(y|x) = \textbf{x}'\beta$</p>
-</li>
-<li><p>BLP coefficient is given by $\beta = argmin_{b \in \mathbb{R}^k} S(b)$. The BLP coefficients are also called the Linear Projection Coefficient.</p>
-</li>
-<li><p>$\hat{\beta}$ is unique and given by $(E(xx')^{-1} E(xy))$</p>
-</li>
-<li><p>The BLP is given by $P(y|x) = \textbf{x}'\beta = \textbf{x}' (E(xx')^{-1} E(xy)) $</p>
-</li>
-<li><p>The error $e = y - \textbf{x}'\beta$ exists and satisfies $\boxed{E(\textbf{x}e) = 0}$</p>
-</li>
+<li>Suppose z = (x, y) are jointly normal with zero means $\mu = (0, 0)'$ and covariance matrix</li>
 </ul>
-<p>This means for each i, $E[X_i e] = 0$ i.e. $X_i$ and e are orthogonal.</p>
-<ul>
-<li>If x is a constant then $E(e) = 0$, however for CEF, it was always true!</li>
-</ul>
+$$ \Sigma = \begin{pmatrix}
+1 &amp; \rho \\
+\rho &amp; 1
+\end{pmatrix} $$<p>The CEF of y given x is $E(y|x) = m(x) = \rho x $</p>
+<p>The variance of CEF error is $Var(e) = 1 - \rho^2$</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>For BLP, it must be true that the errors are uncorrelated with $x_is.$ </li>
-</ul>
-<p>$\beta$ is BLP $ &lt;=&gt; E(xe) =0$</p>
-<ul>
-<li><p>This is the moment condition (in the moment estimator!). So the BLP can be written as a moments estimator!!</p>
-</li>
-<li><p>So, all the properties of moments estimators are true in this case!</p>
-</li>
-<li><p>The moment that finds BLP is that errors are othoginal to the $x_i$.</p>
-</li>
-</ul>
+<h2 id="Best-Predictor">Best Predictor<a class="anchor-link" href="#Best-Predictor"> </a></h2><p>Best predictor $g(x)$ is one that minimize the MSE = $E(y - g(x))^2$</p>
+<p>The CEF $m(x)$, regardless of the joint distribution of $(y, \textbf{x})$, minimizes the MSE!</p>
+<p>The conditional variance of y given x is 
+
+$$ \sigma^2(y|\textbf{x}) = \sigma^2(\textbf{x}) = Var(y|\textbf{x}) = E((y - E(y|x))^2|x)= E(e^2|\textbf{x})$$
+</p>
+<p>For the above example, if the correlation is 1, the conditional variance of (y|\textbf{x}) is 0!</p>
+<p>Conditional variance is how much info is left in y after we remove <strong>x</strong>.</p>
+<p>The unconditional variance of the error is teh average of conditional variance. 
+$\sigma^2 = E(e^2) = E(E(e^2|\textbf{x})) = E(\sigma^2(\textbf{x}))$</p>
+<p>Any multivariate rv $z = (y, x)$ can be decomposed as: 
+
+$$ y = m(x) + \sigma(x) \epsilon $$
+</p>
+<p>Where, $m(x) = E(y|x), \epsilon = \frac{e}{\sigma(x)}, E(\epsilon|x) = 0,  Var(\epsilon|x) = 0$</p>
+<p>Often conditional variance is ignored.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Linear Prediction with Constant Term</strong></p>
-<p>If y has a constant term i.e. $y = \alpha + \textbf{x'} \beta + e$</p>
-<p>$\implies \alpha = E(y) - E(\textbf{x'} \beta) = \mu_y - \mu'_x\beta $</p>
-<p>$\implies \beta = Var(x)^{-1} Cov(x,y)$</p>
+<p>$\sigma(x) = \sigma =$ const then it is homoskedasticity. If teh volatility of error is not constant then heteroskedastcity.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Linear Predictor Error Variance</strong>
-$\sigma^2 = E(y - \textbf{x'}\beta)^2 = Q_{yy} - Q_{yx} Q^{-1}_{xx} Q_{xy}$</p>
-<p>This is the variance of the errors from the BLP of y on x.</p>
+<h2 id="CEF-Derivative">CEF Derivative<a class="anchor-link" href="#CEF-Derivative"> </a></h2><p>How does CEF vary with small change in x? 
+The marginal effect of $x_1$ is</p>
+<p>
+$$ \Delta_1 m(\textbf{x}) = \frac{\partial}{\partial x_1} m(x_1, ..., x_k)$$
+</p>
+<p>note that this derivative doesnt measure change in y, but change in the conditional expectation of y.</p>
+<p>Summary: $m(x)$ minimizes MSE. $E(e|x) = 0; E(e) = 0; y = m(x) + \sigma(x) \epsilon$</p>
+<p>CEF can be non-linear. So, next is to understand, how to get a linear regressor?</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Joint-Normality">Joint Normality<a class="anchor-link" href="#Joint-Normality"> </a></h2><ul>
-<li>(y, x) are jointly normal</li>
-<li>This means (e, x) are jointly normal</li>
-<li>$E(e) = 0$ and $E(xe) = 0$ $\implies Cov(e, x) = 0$.</li>
-<li>e and x are jointly normal and uncorrelated and this independent! This is only for normality! </li>
-<li>For Independence, $E(e|x) = E(e) = 0$</li>
-<li>So, This is CEF!</li>
-<li>Under Joint Normal, the linear projection is a CEF!</li>
-<li>So, therefore BLP is the best predictor among all (including nonlinear) predictors!</li>
-</ul>
+<p>Similarly, CEF: $E(e|\textbf{x}) = 0 &lt;=&gt; E(e|x_j)$</p>
+<p>$E(e|x)$ implies $E(xe) = 0$</p>
+<p>So CEF is more powerful than BLP. And both are examples of moment estimators.</p>
 
 </div>
 </div>
@@ -239,7 +242,7 @@ $\sigma^2 = E(y - \textbf{x'}\beta)^2 = Q_{yy} - Q_{yx} Q^{-1}_{xx} Q_{xy}$</p>
 
 
 
-  </div><a class="u-url" href="/bquant/2021/02/24/Statistics-Regression-BLP.html" hidden></a>
+  </div><a class="u-url" href="/bquant/2021/03/11/Statistics-Regression-CEF.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

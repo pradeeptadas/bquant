@@ -4,19 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | bquant blog</title>
+<title>Properties of OLS | bquant blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Properties of OLS" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Quant blogging with Jupyter Notebook Illustration." />
 <meta property="og:description" content="Quant blogging with Jupyter Notebook Illustration." />
-<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/02/24/HighDimentionalData.html" />
-<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/02/24/HighDimentionalData.html" />
+<link rel="canonical" href="https://pradeeptadas.github.io/bquant/2021/03/12/Statistics-Regression-OLS.html" />
+<meta property="og:url" content="https://pradeeptadas.github.io/bquant/2021/03/12/Statistics-Regression-OLS.html" />
 <meta property="og:site_name" content="bquant blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-02-24T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-03-12T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://pradeeptadas.github.io/bquant/2021/02/24/HighDimentionalData.html","@type":"BlogPosting","headline":"Title","dateModified":"2021-02-24T00:00:00-06:00","datePublished":"2021-02-24T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/02/24/HighDimentionalData.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
+{"url":"https://pradeeptadas.github.io/bquant/2021/03/12/Statistics-Regression-OLS.html","@type":"BlogPosting","headline":"Properties of OLS","dateModified":"2021-03-12T00:00:00-06:00","datePublished":"2021-03-12T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pradeeptadas.github.io/bquant/2021/03/12/Statistics-Regression-OLS.html"},"description":"Quant blogging with Jupyter Notebook Illustration.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/bquant/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pradeeptadas.github.io/bquant/feed.xml" title="bquant blog" /><link rel="shortcut icon" type="image/x-icon" href="/bquant/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -87,13 +87,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-24T00:00:00-06:00" itemprop="datePublished">
-        Feb 24, 2021
+    <h1 class="post-title p-name" itemprop="name headline">Properties of OLS</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-12T00:00:00-06:00" itemprop="datePublished">
+        Mar 12, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      2 min read
     
 </span></p>
 
@@ -104,19 +104,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/HighDimentionalData.ipynb" role="button" target="_blank">
+    <a href="https://github.com/pradeeptadas/bquant/tree/master/_notebooks/2021-03-12-Statistics-Regression-OLS.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/bquant/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2FHighDimentionalData.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/pradeeptadas/bquant/master?filepath=_notebooks%2F2021-03-12-Statistics-Regression-OLS.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/HighDimentionalData.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/pradeeptadas/bquant/blob/master/_notebooks/2021-03-12-Statistics-Regression-OLS.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/bquant/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -128,75 +128,111 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/HighDimentionalData.ipynb
+# file to edit: _notebooks/2021-03-12-Statistics-Regression-OLS.ipynb
 -->
 
 <div class="container" id="notebook-container">
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We have a need to understand the high dimensional data to find the low dimensional representation, to classify data points, and to predict out-of-sample data points.</p>
-<p>Some methods about which I have written blogs are</p>
+<p>There is no "the" OLS regression.</p>
+<p>Starting with very strong assumption:</p>
 <ul>
-<li>OLS</li>
-<li>SVD</li>
-<li>PCA</li>
-<li>LDA</li>
+<li>i.i.d. random sample (this doesn't hold true in timeseries context in fin)</li>
 </ul>
+<p>We have data. Data comes from realisations of (y, x). Data is generated by the random variables. We assume that the sample is iid for now -&gt; This implicate that the ordering of data doesnt matter.</p>
+<p>We want to estimate $\beta$. There are many equivalent ways to derive the optimal estimator $\hat{\beta}$ for the linear model.</p>
+<ol>
+<li>Minimizing the sum of squared errors.  (hence least square estimator)</li>
+<li>Apply method of moments to estimate BLP $\beta = (E(xx'))^{-1}E(xy)$</li>
+<li>Apply MM to BLP condition $E(xe) = 0$</li>
+</ol>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we will talk about $L_p$ optimization! ($p \geq 1$)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>$L_2$ is nice because we have the Hilbert Space property! For p &gt;1, all the $L_p$ are norm spaces. They all differ by the distance function we choose. Its like what type of glass we put on. They also signifiy which type of distance to give more weight to. Some glasses are sensitive to a certain type of distances.</p>
-<p>In the below figure (from strang's book), for the 2-norm, the circle is the level set and it is the closest level set to the origin. This point is not same for the L1 norm. For l1, sum of x and y coordinate has to be same. 
-L-1 norm is much less interested in balancing x and y coordinates like L2. it just looks at the sum. So, intuitively it puts more weight on the y-coordinate because its coeeficient is 4. So, this leads to a sparse solution.</p>
-<p>For the $L_\infty$ is completely opposite to $L1$. It is completely balancing both the coordinates. So, the solution comes at the location where x=y.</p>
-<div style="text-align:center"><img src="../images/lp-optimization.JPG" /></div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><ins>**Why L1 norm?**</ins></p>
-<p>Let's say we have noisy data, and we want to do OLS. There are some extreme outliers.<br />
-$min_c ||y = cx ||_p$</p>
-<p>Because L2 norm wants to balance out between all the points. (because the square of the outlier error will contribute largely). So the line will be tilted towards the outlier. If we do L_inf then there will be even more correction towards the outlier.</p>
-<p>In this case, the L1 norm will not care about the outlier. It will chose to remain closer to most of the points at the cost of being distant from the outlier.</p>
-<p>Its a bit tricky to solve L1 problem though in recenet years there are research on this. L1 is a concave optimization problem so it is not that much difficult as well.</p>
-<p>L1 is sparse and is useful if you have extremely large dataset (maybe be a billion dimention space). So you would want to put some extra costs to having many many non-zero parameters. L1 will find a sparse structure.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can take this even further. If we take the $0&lt;p&lt;1$, the optimization is still valid but the $||a-b||_p$ is no longer a distance function. Because the triangle inequality fails!</p>
+<h3 id="Method1:-Minimizing-the-sum-of-squared-errors">Method1: Minimizing the sum of squared errors<a class="anchor-link" href="#Method1:-Minimizing-the-sum-of-squared-errors"> </a></h3><p>We derived the BLP as $ y_i = x'_i \beta + e_i $</p>
+<p>Where $\beta = argmin_{\beta \in \mathbb{R}^k} S(\beta)$ is the minimizer of the expected squared error $$ S(\beta) = E(y_i - x'_i \beta)^2 $$</p>
+<p>and has the solution $\beta = (E(x_i x'_i))^{-1} E(x_i y_i)$</p>
+<p>Now for the complete dataset: iid ${(y_1, x_1), ... (y_n, x_n)}$</p>
+<p>For each datapoint we can plugin $y_i - x_i \beta$</p>
+<p>SSE of sample is  $$ S_n(\beta) = \frac{1}{n}SSE_n(\beta) $$</p>
+<p>$\hat{\beta}$ is called the least squares (LS) estimator.</p>
+<p>$y_i$ is scalar and $x_i$ is a $k \times 1$ vector.</p>
 <p>
-$$ ||1, 1||_p = 2^{1/p} &gt; 2 =  ||1, 0||_p + ||0, 1||_p $$
+$$ \hat{\beta} = (\sum_{i=1}^{n} x_i x'_i)^{-1} \sum_{i=1}^{n} x_i y_i$$
 </p>
-<p>This means that the property that we are familiar with i.e. "shortest distance between two points is a straight line" breaks down.</p>
-<p>So if you want to go from (0,0) to (1,1) -- we wont travel in a straight line. We will go to (0,1) and then to (1, 1). This is very exotic space. Mathematically we will have to move to topological vector spaces which is more advanced than the so familiar metric spaces.</p>
-<p><ins>**Why we are interested?**</ins></p>
-<p>The smaller it gets, the sparser the solution is. So there is a very huge penalty for the small numbers. So we can see that in the limiting case the level sets becomes very degenrate i.e. the only thing it cares about is having as less non-zero coefficients.</p>
-<p>For L_0 case, it is exactly becomes a minimizing the non-zero components in the estimation. The level sets are the axes. <strong>But historically, it has been a NP-Hard problem to solve this optimization.</strong> There is no steepest descent you can use to solve this extremely non-concave optimization.</p>
-<div style="text-align:center"><img src="../images/lp-optimization2.JPG" /></div>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So it turns out, L1 optimization gives  avery good approximation for L0 optimization.</p>
-<p>Below figure shows how the norms vary with x. For L1, the minima is at x=0. and it keeps on shifting right side with increment of p upto 1/7. For p &lt; 1, it shoots up when x is non-zero.</p>
-<div style="text-align:center"><img src="../images/lp-optimization3.JPG" /></div><p>Basis pursuit is L1, LASSO is joint L2 and L1 where we minimize the joint case. But as both are concave, we would be able to generate efficient solutions.</p>
+<h3 id="Method2:-Moment-Estimation-of-BLP">Method2: Moment Estimation of BLP<a class="anchor-link" href="#Method2:-Moment-Estimation-of-BLP"> </a></h3><p>Equivalently, least square can be written as moment estimator.</p>
+<p>$\beta = Q^{-1}_{xx}Q_{xy} = (E(xx'))^{-1}E(xy)$</p>
+<p>$\hat{\beta} = \hat{Q}^{-1}_{xx} \hat{Q}_{xy}$</p>
+<p>Moment estimators for $Q_{xx}$ and $Q_{xy}$:</p>
+<p>
+$$\hat{Q}_{xy} = \frac{1}{n} \sum_{i=1}^{n} x_i y_i$$
+
+
+$$\hat{Q}_{xx} = \frac{1}{n} \sum_{i=1}^{n} x_i x'_i$$
+</p>
+<p>This is exactly same as Method1.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Method3:-BLP-Condition-E(xe-=-0)">Method3: BLP Condition E(xe = 0)<a class="anchor-link" href="#Method3:-BLP-Condition-E(xe-=-0)"> </a></h3><p>Define the fitted values as residuals</p>
+<p>
+$$ \hat{y_i} = x'_i \hat{\beta} $$
+
+
+$$ \hat{e_i} = y_i - x'_i \hat{\beta}$$
+</p>
+<p>The sample equivalent of $E(xe) = 0$ is:</p>
+<p>
+$$ 0 =\frac{1}{n}\sum_{j=1}^{n} x_i \hat{e}_i = \frac{1}{n}\sum_{j=1}^{n} x_i (\hat{y}_i - x'_i \hat{\beta}) $$
+</p>
+<p>
+$$ \hat{\beta} = (\sum_{i=1}^{n} x_i x'_i)^{-1} \sum_{i=1}^{n} x_i y_i$$
+</p>
+<p>Here moment condition to estimate the condition. in method 2 we used moment generator to $\beta$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="For-intercept-only-model:">For intercept only model:<a class="anchor-link" href="#For-intercept-only-model:"> </a></h5><p>$y_i = \mu + e_i$</p>
+<p>$E(e_i) = 0$</p>
+<p>So, the MM and MLE estimator of population mean is the sample mean.</p>
+<p>And the OLS regressor is also the sample mean! Its a constant.</p>
+<p>Sample mean = $\hat{\mu}$ = $\frac{1}{n} \sum_{i=1}^{n}y_i$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Matrix-Form">Matrix Form<a class="anchor-link" href="#Matrix-Form"> </a></h3><p>
+$$\sum_{i=1}^{n} x_i x'_i = X'X$$
+
+
+$$\sum_{i=1}^{n} x_i y_i = X'y$$
+</p>
+<p>Least Square Estimator is
+
+$$ \hat{\beta} = (X'X)^{-1}(X'y)$$
+</p>
+<p>The estimated version of the model is $y = X\hat{\beta} + \hat{e}$ and the residual vector is $\hat{e} = y - X\hat{\beta}$</p>
+<p>
+$$ X'\hat{e} = 0$$
+</p>
 
 </div>
 </div>
@@ -205,7 +241,7 @@ $$ ||1, 1||_p = 2^{1/p} &gt; 2 =  ||1, 0||_p + ||0, 1||_p $$
 
 
 
-  </div><a class="u-url" href="/bquant/2021/02/24/HighDimentionalData.html" hidden></a>
+  </div><a class="u-url" href="/bquant/2021/03/12/Statistics-Regression-OLS.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
